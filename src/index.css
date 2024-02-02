@@ -5,7 +5,7 @@
   --secondary-text-color: rgba(18, 20, 23, 0.5);
   --accent-color: rgba(11, 68, 205, 1);
   --button-color: rgba(52, 112, 255, 1);
-  --background-color: #fff;
+  --white-color: #ffffff;
   --input-color: rgba(247, 247, 251, 1);
   --options-text-color: rgba(18, 20, 23, 0.2);
   --border-color: rgba(239, 237, 232, 0.2);
@@ -14,9 +14,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,4 +22,53 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  margin-block-start: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+input {
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+}
+
+select {
+  border: none;
 }

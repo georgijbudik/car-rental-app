@@ -15,7 +15,20 @@ export const fetchCatalog = createAsyncThunk(
           limit: 12,
         },
       });
-      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchMakes = createAsyncThunk(
+  'catalog/fetchMakes',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('/makes', {
+        headers: { 'content-type': 'application/json' },
+      });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

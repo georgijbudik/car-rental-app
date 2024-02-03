@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -31,35 +31,7 @@ export const FiltersContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const StyledInput = styled.input`
-  display: flex;
-  padding: 14px 89px 14px 18px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 14px;
-  background: #f7f7fb;
-
-  color: #121417;
-
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-`;
-
-export const StyledSelect = styled.select`
-  display: flex;
-  width: 125px;
-  padding: 14px 18px;
-  align-items: flex-start;
-  border-radius: 14px;
-  background: #f7f7fb;
-
-  color: #121417;
-
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-`;
+export const StyledInput = styled.input``;
 
 export const StyledSecondInput = styled.input`
   width: 160px;
@@ -71,7 +43,11 @@ export const StyledSecondInput = styled.input`
   background: #f7f7fb;
 `;
 
-export const InputContainer = styled.div``;
+export const InputContainer = styled.div`
+  display: flex;
+  position: relative;
+  height: 48px;
+`;
 
 export const StyledButton = styled.button`
   display: flex;
@@ -89,6 +65,13 @@ export const StyledButton = styled.button`
   line-height: 20px;
   border: none;
   margin-left: 18px;
+  font-family: inherit;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+  }
 `;
 
 export const SelectContainer = styled.div`
@@ -97,4 +80,64 @@ export const SelectContainer = styled.div`
   & > div:first-child {
     margin-right: 18px;
   }
+`;
+
+export const InputLeft = styled.input`
+  display: block;
+  width: 160px;
+  height: 48px;
+  border: none;
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  background-color: rgba(247, 247, 251, 1);
+  border-radius: 14px 0 0 14px;
+  padding-left: 0;
+  text-indent: 70px;
+
+  font-family: 'Manrope';
+  color: rgba(18, 20, 23, 1);
+  font-size: 18px;
+  &:focus {
+    outline-color: #3470ff;
+  }
+`;
+
+export const InputRight = styled.input`
+  display: block;
+  width: 160px;
+  height: 48px;
+  border: none;
+  background-color: rgba(247, 247, 251, 1);
+  border-radius: 0 14px 14px 0;
+  padding-left: 0;
+  text-indent: 45px;
+
+  font-family: 'Manrope';
+  color: rgba(18, 20, 23, 1);
+  font-size: 18px;
+  &:focus {
+    outline-color: #3470ff;
+  }
+`;
+
+export const SpanLeft = styled.span`
+  position: absolute;
+  display: block;
+  left: 20px;
+  top: 15px;
+  font-family: 'Manrope';
+  color: rgba(18, 20, 23, 1);
+  font-size: 18px;
+  line-height: 20px; /* 111.111% */
+  font-weight: 500;
+`;
+
+export const SpanRight = styled.span`
+  position: absolute;
+  display: block;
+  left: 180px;
+  top: 15px;
+  font-family: 'Manrope';
+  color: rgba(18, 20, 23, 1);
+  font-size: 18px;
+  font-weight: 500;
 `;

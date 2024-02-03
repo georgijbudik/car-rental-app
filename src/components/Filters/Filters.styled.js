@@ -45,6 +45,7 @@ export const StyledSecondInput = styled.input`
 
 export const InputContainer = styled.div`
   display: flex;
+  align-items: center;
   position: relative;
   height: 48px;
 `;
@@ -92,12 +93,13 @@ export const InputLeft = styled.input`
   border-radius: 14px 0 0 14px;
   padding-left: 0;
   text-indent: 70px;
+  font-weight: 500;
 
   font-family: 'Manrope';
   color: rgba(18, 20, 23, 1);
   font-size: 18px;
   &:focus {
-    outline-color: #3470ff;
+    border: 1px solid var(--button-color);
   }
 `;
 
@@ -110,20 +112,21 @@ export const InputRight = styled.input`
   border-radius: 0 14px 14px 0;
   padding-left: 0;
   text-indent: 45px;
+  font-weight: 500;
 
   font-family: 'Manrope';
   color: rgba(18, 20, 23, 1);
   font-size: 18px;
   &:focus {
-    outline-color: #3470ff;
+    border: 1px solid var(--button-color);
   }
 `;
 
 export const SpanLeft = styled.span`
   position: absolute;
   display: block;
-  left: 20px;
-  top: 15px;
+  left: 24px;
+  top: 14px;
   font-family: 'Manrope';
   color: rgba(18, 20, 23, 1);
   font-size: 18px;
@@ -135,7 +138,7 @@ export const SpanRight = styled.span`
   position: absolute;
   display: block;
   left: 180px;
-  top: 15px;
+  top: 14px;
   font-family: 'Manrope';
   color: rgba(18, 20, 23, 1);
   font-size: 18px;

@@ -11,7 +11,6 @@ import {
   StyledButton,
   StyledForm,
   StyledLabel,
-  StyledSecondInput,
 } from './Filters.styled';
 import Select from 'react-select';
 import { selectMakes } from 'redux_/catalog/catalogSelectors';
@@ -33,10 +32,6 @@ const Filters = () => {
 
   const makeOptions = makes.map(make => ({ value: make, label: make }));
 
-  const selectedCarBrand = filterParams.carBrand
-    ? filterParams.carBrand.value
-    : null;
-  const selectedPrice = filterParams.price ? filterParams.price.value : null;
   const priceRangeOptions = [];
 
   for (let i = 30; i <= 500; i += 10) {
@@ -47,14 +42,10 @@ const Filters = () => {
     setFilterParams({ ...filterParams, [field]: value });
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
     dispatch(
       fetchCatalog({
-        carBrand: selectedCarBrand,
-        price: selectedPrice,
-        mileageFrom: filterParams.mileageFrom,
-        mileageTo: filterParams.mileageTo,
         page: 1,
       })
     );

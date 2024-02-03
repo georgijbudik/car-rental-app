@@ -6,7 +6,7 @@ export const stylesCarBrand = {
     borderColor: 'rgba(18, 20, 23, 0.2)',
     border: 'none',
     borderRadius: '14px',
-    padding: '8px',
+    padding: '6px',
     fontSize: '16px',
     fontFamily: 'Manrope',
     backgroundColor: 'rgba(247, 247, 251, 1)',
@@ -47,12 +47,12 @@ export const stylesCarBrand = {
 export const stylesPriceRange = {
   control: styles => ({
     ...styles,
-    width: '128px',
+    width: '135px',
     height: '48px',
     borderColor: 'rgba(18, 20, 23, 0.2)',
     border: 'none',
     borderRadius: '14px',
-    padding: '8px',
+    padding: '6px',
     fontSize: '16px',
     fontFamily: 'Manrope',
     backgroundColor: 'rgba(247, 247, 251, 1)',

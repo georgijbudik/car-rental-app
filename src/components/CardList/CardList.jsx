@@ -5,6 +5,7 @@ import { StyledItem, StyledList } from './CardList.styled';
 
 const CardList = () => {
   const catalog = useSelector(selectCatalog);
+
   return (
     <>
       {catalog.length > 0 && (

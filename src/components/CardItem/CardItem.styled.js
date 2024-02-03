@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-export const CardWrapper = styled.div``;
+export const CardWrapper = styled.div`
+  position: relative;
+`;
 
 export const CardImg = styled.img`
-  width: 100%;
+  width: 274px;
   height: 268px;
   object-fit: cover;
   border-radius: 14px;
@@ -38,9 +40,50 @@ export const CardTitle = styled.h2`
   line-height: 24px;
 `;
 
+export const CardTitleWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const CardDescriptionSpan = styled.span`
   color: var(--button-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+`;
+
+export const CardDescriptionList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  width: 274px;
+  height: 40px;
+  margin-top: 8px;
+  & > li:not(:last-child) {
+    border-right: 1px solid rgba(18, 20, 23, 0.1);
+    margin-right: 6px;
+    padding-right: 6px;
+  }
+`;
+
+export const CardDesctiptionText = styled.p`
+  color: var(--secondary-text-color);
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+`;
+
+export const CardPrice = styled.p`
+  color: var(--main-text-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+`;
+
+export const CardHertIconWrap = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 0;
 `;

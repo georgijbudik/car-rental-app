@@ -5,13 +5,12 @@ axios.defaults.baseURL = 'https://65ba50d5b4d53c0665529613.mockapi.io/api';
 
 export const fetchCatalog = createAsyncThunk(
   'catalog/fetchCatalog',
-  async (_, thunkAPI) => {
+  async ({ page }, thunkAPI) => {
     try {
       const res = await axios.get('/adverts', {
         headers: { 'content-type': 'application/json' },
         params: {
-          search: '',
-          page: 1,
+          page,
           limit: 12,
         },
       });

@@ -30,6 +30,12 @@ export const CardButton = styled.button`
   font-weight: 600;
   line-height: 20px;
   margin: 0 auto;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+  }
 `;
 
 export const CardTitle = styled.h2`
@@ -85,5 +91,4 @@ export const CardHertIconWrap = styled.div`
   position: absolute;
   top: 14px;
   right: 14px;
-  padding: 0;
 `;

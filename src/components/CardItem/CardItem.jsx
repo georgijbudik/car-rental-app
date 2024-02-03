@@ -14,6 +14,8 @@ import {
 } from './CardItem.styled';
 import Modal from 'components/Modal/Modal';
 import CardHeartIcon from 'components/CardHeartIcon/CardHeartIcon';
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from 'redux_/catalog/catalogSelectors';
 
 const CardItem = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,10 +75,10 @@ const CardItem = ({ item }) => {
             </li>
           </CardDescriptionList>
         </DescriptionWrap>
-        <CardButton type="button" onClick={onOpenModal}>
-          Learn more
-        </CardButton>
       </CardWrapper>
+      <CardButton type="button" onClick={onOpenModal}>
+        Learn more
+      </CardButton>
       {isModalOpen && (
         <Modal onClose={onCloseModal} item={item} isModalOpen={isModalOpen} />
       )}

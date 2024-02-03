@@ -12,13 +12,13 @@ import {
   CardHertIconWrap,
   CardTitleWrap,
 } from './CardItem.styled';
-import Modal from 'components/Modal/Modal';
 import CardHeartIcon from 'components/CardHeartIcon/CardHeartIcon';
-import { useSelector } from 'react-redux';
-import { selectIsLoading } from 'redux_/catalog/catalogSelectors';
+import BasicModal from 'components/Modal/Modal';
 
 const CardItem = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleOpen = () => setIsModalOpen(true);
+  const handleClose = () => setIsModalOpen(false);
 
   const address = item.address.split(',');
   const functionality = item.functionalities[0]
@@ -26,13 +26,6 @@ const CardItem = ({ item }) => {
     .splice(0, 10)
     .join('')
     .slice(0, 11);
-
-  const onOpenModal = () => {
-    setIsModalOpen(true);
-  };
-  const onCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <>
@@ -76,11 +69,15 @@ const CardItem = ({ item }) => {
           </CardDescriptionList>
         </DescriptionWrap>
       </CardWrapper>
-      <CardButton type="button" onClick={onOpenModal}>
+      <CardButton type="button" onClick={handleOpen}>
         Learn more
       </CardButton>
       {isModalOpen && (
-        <Modal onClose={onCloseModal} item={item} isModalOpen={isModalOpen} />
+        <BasicModal
+          onClose={handleClose}
+          item={item}
+          isModalOpen={isModalOpen}
+        />
       )}
     </>
   );

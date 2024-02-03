@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   ConditionItem,
   ConditionList,
@@ -11,30 +10,35 @@ import {
   ModalContentWrap,
   ModalImg,
   ModalTitle,
-  ModalWrap,
   StyledCloseIcon,
   StyledModalCloseButton,
-  StyledOverlay,
 } from './Modal.styled';
 import { CardDescriptionSpan } from 'components/CardItem/CardItem.styled';
+import { Box, Modal } from '@mui/material';
 
-const Modal = ({ item, onClose, isModalOpen }) => {
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: 'background.paper',
+  borderRadius: '24px',
+  boxShadow: 24,
+  width: '541px',
+  maxHeight: '90vh',
+  overflowY: 'auto',
+  outline: 'none',
+};
 
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose]);
+const BasicModal = ({ item, isModalOpen, onClose }) => {
   return (
-    <StyledOverlay onClick={onClose}>
-      <ModalWrap onClick={e => e.stopPropagation()}>
+    <Modal
+      open={isModalOpen}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={{ ...style }}>
         <StyledModalCloseButton type="button" onClick={onClose}>
           <StyledCloseIcon />
         </StyledModalCloseButton>
@@ -101,9 +105,9 @@ const Modal = ({ item, onClose, isModalOpen }) => {
             Rental car
           </ModalButton>
         </ModalContentWrap>
-      </ModalWrap>
-    </StyledOverlay>
+      </Box>
+    </Modal>
   );
 };
 
-export default Modal;
+export default BasicModal;

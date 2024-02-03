@@ -8,9 +8,7 @@ export const StyledList = styled.ul`
     margin-right: 0;
   }
 
-  & :nth-last-child(-n + 4) {
-    margin-bottom: 0;
-  }
+  margin-bottom: 40px;
 `;
 
 export const StyledItem = styled.li`

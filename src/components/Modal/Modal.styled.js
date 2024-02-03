@@ -1,28 +1,6 @@
 import styled from '@emotion/styled';
 import CloseIcon from '@mui/icons-material/Close';
 
-export const StyledOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--secondary-text-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-`;
-
-export const ModalWrap = styled.div`
-  border-radius: 24px;
-  width: 541px;
-  height: 752px;
-
-  background: var(--white-color);
-  position: relative;
-`;
-
 export const StyledModalCloseButton = styled.button`
   padding: 0;
   line-height: 0;

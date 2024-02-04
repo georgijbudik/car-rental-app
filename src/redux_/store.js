@@ -12,6 +12,7 @@ import {
 } from 'redux-persist';
 import persistReducer from 'redux-persist/es/persistReducer';
 import { favoritesReducer } from './favorites/favoritesSlice';
+import { filterReducer } from './filter/filterSlice';
 
 const favoritesPersistConfig = {
   key: 'favorites',
@@ -24,6 +25,7 @@ const store = configureStore({
   reducer: {
     catalog: catalogReducer,
     favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

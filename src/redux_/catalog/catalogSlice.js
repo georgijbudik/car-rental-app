@@ -11,12 +11,17 @@ const initialState = {
 const catalogSlice = createSlice({
   name: 'catalog',
   initialState,
+  reducers: {
+    clearCatalog(state, _) {
+      state.items = [];
+    },
+  },
   extraReducers: builder => {
     builder.addCase(fetchCatalog.pending, (state, action) => {
       state.isLoading = true;
     });
     builder.addCase(fetchCatalog.fulfilled, (state, action) => {
-      state.items = action.payload;
+      state.items = [...state.items, ...action.payload];
       state.isLoading = false;
       state.error = null;
     });
@@ -38,5 +43,7 @@ const catalogSlice = createSlice({
     });
   },
 });
+
+export const { clearCatalog } = catalogSlice.actions;
 
 export const catalogReducer = catalogSlice.reducer;

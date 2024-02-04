@@ -1,46 +1,32 @@
-Car Rental App - Drive in Style and Comfort 🚗
-Explore the Car Rental app, a dynamic and user-friendly solution designed to enhance your car rental experience. This React app, powered by technologies like Redux Toolkit, Redux Persist, Axios, and Material UI, provides seamless navigation and efficient functionality for users interested in browsing, renting, and managing their favorite cars.
 
-About the Project
-The Car Rental app offers a variety of features tailored to meet your car rental needs. Users can:
+# Car Rental - React app 
 
-Browse Catalog: Explore an extensive catalog showcasing different cars with detailed information about make, model, and specifications.
+Car Rental App - Drive in Style and Comfort 🚗 Explore the Car Rental app, a dynamic and user-friendly solution designed to enhance your car rental experience.
 
-Favorites Management: Create accounts to personalize your experience and add preferred cars to your favorites for quick access.
+## About the project
 
-Effortless Rental: Rent a car hassle-free by selecting your desired vehicle, checking availability, and completing the rental process.
+This app allows you to explore and manage your sports activity and nutrition.
+Users can:
 
-Technologies Used
-Frontend
-React: Building dynamic and responsive user interfaces.
-Redux Toolkit: Efficient state management for seamless data flow.
-Redux Persist: Persistent state storage for personalized user experiences.
-Axios: Handling API requests for smooth communication with the backend.
-Material UI: Stylish and consistent design components for an appealing UI.
-Backend
-Mock API: Simulated backend to handle data requests and responses.
-Installation & Scripts
-Clone the Repository:
+- explore an extensive catalog showcasing different cars with detailed   information about make, model, and specifications.
 
-bash
-Copy code
-git clone https://github.com/your-username/car-rental-app
-Install Dependencies:
+- easily filter cars by make and price to find the perfect vehicle that suits your preferences and budget.
 
-npm install
-Run Development Mode:
+- rent a car hassle-free by selecting your desired vehicle, checking availability, and completing the rental process.
 
-arduino
-npm run dev
-Start Local Server:
+## Technologies used:
 
-sql
-npm start
-Run Production Build:
+- Frontend: HTML, CSS, React, React-Router ReduxTk, Axios, Styled Components, Marerial UI
 
-npm build
+- Backend: Mock.api
 
-Solo Project 👨‍💻
-GitHub [georgii] | Full Stack Developer
+## Installation & Scripts
 
-Feel free to explore the app, browse the catalog, and rent your dream car with ease. Happy driving! 🚗
+1. Clone the repository: 
+   `git clone https://github.com/georgijbudik/car-rental-app`
+2. Install the dependencies: `npm install`
+3. Run development mode: `npm run dev`
+4. Start local server: `npm start`
+5. Run production build: `npm build`
+
+## Happy driving! 🚗

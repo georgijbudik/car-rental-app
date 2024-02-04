@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
   height: 50px;
@@ -28,3 +29,8 @@ export const LogoTitle = styled.p`
   font-size: 24px;
   color: var(--button-color);
 `;
+
+export const StyledHomeLink = styled(Link)({
+  display: 'flex',
+  alignItems: 'center',
+});

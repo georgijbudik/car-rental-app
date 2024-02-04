@@ -5,10 +5,11 @@ export const StyledHeader = styled.header`
   border-radius: 4px;
 
   display: flex;
-
+  justify-content: space-between;
   align-items: center;
-  padding: 16px 205px;
-  background-color: white;
+  padding: 20px 0;
+  background-color: var(--white-color);
+  margin-bottom: 14px;
 `;
 
 export const Logo = styled.img`
@@ -19,7 +20,6 @@ export const Logo = styled.img`
 
 export const LogoWrap = styled.div`
   display: flex;
-  padding-right: 240px;
   align-items: center;
 `;
 

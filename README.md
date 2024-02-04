@@ -5,7 +5,6 @@ Car Rental App - Drive in Style and Comfort 🚗 Explore the Car Rental app, a d
 
 ## About the project
 
-This app allows you to explore and manage your sports activity and nutrition.
 Users can:
 
 - explore an extensive catalog showcasing different cars with detailed   information about make, model, and specifications.
@@ -13,6 +12,18 @@ Users can:
 - easily filter cars by make and price to find the perfect vehicle that suits your preferences and budget.
 
 - rent a car hassle-free by selecting your desired vehicle, checking availability, and completing the rental process.
+
+## Home
+
+<img width="980" alt="readme" src="public/readme-1.png">
+
+## Catalog
+
+<img width="980" alt="readme" src="public/readme-2.png">
+
+## Favorites
+
+<img width="980" alt="readme" src="public/readme-2.png">
 
 ## Technologies used:
 

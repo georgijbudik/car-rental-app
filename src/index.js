@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from 'redux_/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="test-task">
+  <BrowserRouter basename="car-rental-app">
     <Provider store={store}>
       <React.StrictMode>
         <App />

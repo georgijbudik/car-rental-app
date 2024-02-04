@@ -15,61 +15,79 @@ import {
 import Select from 'react-select';
 import { selectMakes } from 'redux_/catalog/catalogSelectors';
 import { stylesCarBrand, stylesPriceRange } from './selectStyles/styles';
-import { useState } from 'react';
 import { fetchCatalog } from 'redux_/catalog/catalogOperations';
+import { clearCatalog } from 'redux_/catalog/catalogSlice';
+import { setFilter } from 'redux_/filter/filterSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Filters = () => {
   const makes = useSelector(selectMakes);
+
   const dispatch = useDispatch();
-
-  const [filterParams, setFilterParams] = useState({
-    make: '',
-    price: null,
-    mileageFrom: '',
-    mileageTo: '',
-  });
-  console.log(filterParams);
-
   const makeOptions = makes.map(make => ({ value: make, label: make }));
-
   const priceRangeOptions = [];
 
   for (let i = 30; i <= 500; i += 10) {
     priceRangeOptions.push({ value: i, label: `${i}` });
   }
 
-  const handleInputChange = (field, value) => {
-    setFilterParams({ ...filterParams, [field]: value });
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(
-      fetchCatalog({
-        page: 1,
-      })
-    );
+
+    const { make, rentalPrice, mileageFrom, mileageTo } = e.target.elements;
+
+    if (
+      !make.value &&
+      !rentalPrice.value &&
+      !mileageFrom.value &&
+      !mileageTo.value
+    ) {
+      return toast.info('Select filters', { autoClose: 2000 });
+    }
+    const mileageFromNumber = Number(mileageFrom.value);
+    const mileageToNumber = Number(mileageTo.value);
+
+    if (mileageFromNumber < 0 || mileageToNumber < 0) {
+      return toast.info('Number must be greater than 0', { autoClose: 2000 });
+    }
+
+    if (mileageFromNumber > mileageToNumber && mileageToNumber !== 0) {
+      return toast.info(
+        'Minimum mileage cannot be greater than maximum mileage'
+      );
+    }
+
+    const carBrand = make.value === 'all' ? '' : make.value;
+
+    const filters = {
+      make: carBrand,
+      rentalPrice: Number(rentalPrice.value),
+      mileageFrom: mileageFromNumber,
+      mileageTo: mileageToNumber,
+    };
+    dispatch(clearCatalog());
+    dispatch(fetchCatalog({ page: 1, limit: 32 }));
+    dispatch(setFilter(filters));
   };
 
   return (
     <FiltersContainer>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div>
             <StyledLabel htmlFor="carBrand">Car brand</StyledLabel>
             <div>
               <Select
                 id="carBrand"
+                name="make"
                 placeholder="Enter the text"
-                options={makeOptions}
+                options={[{ value: 'all', label: 'All' }, ...makeOptions]}
                 isClearable
                 styles={{ ...stylesCarBrand }}
                 components={{
                   IndicatorSeparator: () => null,
                 }}
-                onChange={selectedOption =>
-                  handleInputChange('carBrand', selectedOption)
-                }
               />
             </div>
           </div>
@@ -79,7 +97,7 @@ const Filters = () => {
               <Select
                 id="price"
                 placeholder="To $"
-                options={priceRangeOptions}
+                options={[{ value: 'all', label: 'All' }, ...priceRangeOptions]}
                 isClearable
                 styles={{
                   ...stylesPriceRange,
@@ -87,35 +105,19 @@ const Filters = () => {
                 components={{
                   IndicatorSeparator: () => null,
                 }}
-                onChange={selectedOption =>
-                  handleInputChange('price', selectedOption)
-                }
+                name="rentalPrice"
               />
             </SelectWrap>
             <SelectWrap>
               <StyledLabel htmlFor="mileage">Сar mileage / km</StyledLabel>
               <InputContainer>
-                <InputLeft
-                  type="text"
-                  id="mileage"
-                  value={filterParams.mileageFrom}
-                  onChange={e =>
-                    handleInputChange('mileageFrom', e.target.value)
-                  }
-                />
+                <InputLeft type="text" id="mileage" name="mileageFrom" />
                 <SpanLeft>From</SpanLeft>
-                <InputRight
-                  type="text"
-                  id="mileage"
-                  value={filterParams.mileageTo}
-                  onChange={e => handleInputChange('mileageTo', e.target.value)}
-                />
+                <InputRight type="text" id="mileage" name="mileageTo" />
                 <SpanRight>To</SpanRight>
               </InputContainer>
             </SelectWrap>
-            <StyledButton type="submit" onClick={handleSubmit}>
-              Search
-            </StyledButton>
+            <StyledButton type="submit">Search</StyledButton>
           </SelectContainer>
         </div>
       </StyledForm>

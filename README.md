@@ -23,7 +23,7 @@ Users can:
 
 ## Favorites
 
-<img width="980" alt="readme" src="public/readme-2.png">
+<img width="980" alt="readme" src="public/readme-3.png">
 
 ## Technologies used:
 

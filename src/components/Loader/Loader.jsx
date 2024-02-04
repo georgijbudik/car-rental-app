@@ -10,7 +10,7 @@ const Loader = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '110vh',
         margin: '0 auto',
         position: 'fixed',
         top: '0',

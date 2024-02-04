@@ -9,27 +9,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCatalog, fetchMakes } from 'redux_/catalog/catalogOperations';
 import CardList from 'components/CardList/CardList';
 import Title from 'components/Title/Title';
-import {
-  selectCatalog,
-  selectIsLoading,
-} from 'redux_/catalog/catalogSelectors';
+import { selectAmount, selectIsLoading } from 'redux_/catalog/catalogSelectors';
 import Loader from 'components/Loader/Loader';
+import { clearCatalog } from 'redux_/catalog/catalogSlice';
+import { clearFilter } from 'redux_/filter/filterSlice';
+import { selectFilteredCatalog } from 'redux_/filter/filterSelectors';
+import NotFound from 'components/NotFound/NotFound';
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
+  const amount = useSelector(selectAmount);
   const isLoading = useSelector(selectIsLoading);
-  const catalog = useSelector(selectCatalog);
-
-  const onLoadMore = () => {
-    setPage(page + 1);
-    dispatch(fetchCatalog({ page }));
-  };
-
+  const filteredCatalog = useSelector(selectFilteredCatalog);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchCatalog({ page }));
+    if (page === 1) {
+      dispatch(clearCatalog());
+      dispatch(clearFilter());
+    }
+
+    dispatch(fetchCatalog({ page, limit: 12 }));
     dispatch(fetchMakes());
   }, [dispatch, page]);
+
+  const onLoadMore = () => {
+    setPage(prevState => prevState + 1);
+  };
 
   return (
     <div>
@@ -39,26 +45,18 @@ const Catalog = () => {
       <CatalogContainer>
         <Filters />
       </CatalogContainer>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <CatalogWrap>
-          {catalog.length === 0 ? (
-            <div>The list is empty</div>
-          ) : (
-            <>
-              <CardList />
-              <LoadMoreButton
-                type="button"
-                onClick={onLoadMore}
-                hidden={isLoading}
-              >
-                Load more
-              </LoadMoreButton>
-            </>
-          )}
-        </CatalogWrap>
-      )}
+      <CatalogWrap>
+        {filteredCatalog.length > 0 && <CardList cars={filteredCatalog} />}
+        {filteredCatalog.length === 0 && !isLoading && (
+          <NotFound message={'Ooops, the list is empty'} />
+        )}
+        {amount < 32 && (
+          <LoadMoreButton type="button" hidden={isLoading} onClick={onLoadMore}>
+            Load more
+          </LoadMoreButton>
+        )}
+        {isLoading && <Loader />}
+      </CatalogWrap>
     </div>
   );
 };

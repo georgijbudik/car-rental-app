@@ -1,22 +1,16 @@
 import CardItem from 'components/CardItem/CardItem';
-import { useSelector } from 'react-redux';
-import { selectCatalog } from 'redux_/catalog/catalogSelectors';
 import { StyledItem, StyledList } from './CardList.styled';
 
-const CardList = () => {
-  const catalog = useSelector(selectCatalog);
-
+const CardList = ({ cars }) => {
   return (
     <>
-      {catalog.length > 0 && (
-        <StyledList>
-          {catalog.map(item => (
-            <StyledItem key={item.id}>
-              <CardItem item={item} />
-            </StyledItem>
-          ))}
-        </StyledList>
-      )}
+      <StyledList>
+        {cars.map(car => (
+          <StyledItem key={car.id}>
+            <CardItem item={car} />
+          </StyledItem>
+        ))}
+      </StyledList>
     </>
   );
 };

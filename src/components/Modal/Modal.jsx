@@ -26,7 +26,7 @@ const style = {
   boxShadow: 24,
   width: '541px',
   maxHeight: '90vh',
-  overflowY: 'auto',
+  overflowY: 'hidden',
   outline: 'none',
 };
 

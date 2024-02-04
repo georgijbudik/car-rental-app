@@ -27,6 +27,13 @@ const CardItem = ({ item }) => {
     .join('')
     .slice(0, 11);
 
+  const sliceTitle = title => {
+    if (title.length > 12) {
+      return title.slice(0, 10) + '..';
+    }
+    return title;
+  };
+
   return (
     <>
       <CardWrapper>
@@ -37,8 +44,10 @@ const CardItem = ({ item }) => {
         <DescriptionWrap>
           <CardTitleWrap>
             <CardTitle>
-              {item.make}{' '}
-              <CardDescriptionSpan>{item.model}, </CardDescriptionSpan>
+              {sliceTitle(item.make)}{' '}
+              <CardDescriptionSpan>
+                {sliceTitle(item.model)},{' '}
+              </CardDescriptionSpan>
               {item.year}
             </CardTitle>
             <CardPrice>{item.rentalPrice}</CardPrice>

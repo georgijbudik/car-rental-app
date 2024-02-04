@@ -17,3 +17,10 @@ export const LoadMoreButton = styled.button`
   background-color: transparent;
   padding: 12px;
 `;
+
+export const CatalogWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 24px;
+`;

@@ -1,14 +1,13 @@
 import CardItem from 'components/CardItem/CardItem';
 import { StyledItem, StyledList } from 'components/CardList/CardList.styled';
+import NotFound from 'components/NotFound/NotFound';
 import Title from 'components/Title/Title';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from 'redux_/favorites/favoritesSelectors';
-import notFoundImg from '../images/3d-flame-man-in-suit-shrugging-shoulders.png';
-import { NoFavoriteText, NoFavoritesWrap } from './Favorites.styled';
 const Favorites = () => {
   const favorites = useSelector(selectFavorites);
   return (
-    <div>
+    <>
       <div style={{ display: 'flex' }}>
         <Title>Your favorites</Title>
       </div>
@@ -21,12 +20,9 @@ const Favorites = () => {
           ))}
         </StyledList>
       ) : (
-        <NoFavoritesWrap>
-          <img src={notFoundImg} alt="Lol" />
-          <NoFavoriteText>Ooops, you have no favorites</NoFavoriteText>
-        </NoFavoritesWrap>
+        <NotFound message={'Ooops, you have no favorites'} />
       )}
-    </div>
+    </>
   );
 };
 

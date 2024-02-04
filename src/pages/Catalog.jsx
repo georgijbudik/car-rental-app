@@ -1,5 +1,9 @@
 import Filters from 'components/Filters/Filters';
-import { CatalogContainer, LoadMoreButton } from './Catalog.styled';
+import {
+  CatalogContainer,
+  CatalogWrap,
+  LoadMoreButton,
+} from './Catalog.styled';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCatalog, fetchMakes } from 'redux_/catalog/catalogOperations';
@@ -28,7 +32,7 @@ const Catalog = () => {
   }, [dispatch, page]);
 
   return (
-    <>
+    <div>
       <div style={{ display: 'flex' }}>
         <Title>Our catalog</Title>
       </div>
@@ -38,14 +42,7 @@ const Catalog = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            paddingBottom: '40px',
-          }}
-        >
+        <CatalogWrap>
           {catalog.length === 0 ? (
             <div>The list is empty</div>
           ) : (
@@ -60,9 +57,9 @@ const Catalog = () => {
               </LoadMoreButton>
             </>
           )}
-        </div>
+        </CatalogWrap>
       )}
-    </>
+    </div>
   );
 };
 

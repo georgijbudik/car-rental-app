@@ -30,15 +30,18 @@ const Catalog = () => {
     }
 
     dispatch(fetchCatalog({ page, limit: 12 }));
-    dispatch(fetchMakes());
   }, [dispatch, page]);
+
+  useEffect(() => {
+    dispatch(fetchMakes());
+  }, [dispatch]);
 
   const onLoadMore = () => {
     setPage(prevState => prevState + 1);
   };
 
   return (
-    <div>
+    <>
       <div style={{ display: 'flex' }}>
         <Title>Our catalog</Title>
       </div>
@@ -57,7 +60,7 @@ const Catalog = () => {
         )}
         {isLoading && <Loader />}
       </CatalogWrap>
-    </div>
+    </>
   );
 };
 

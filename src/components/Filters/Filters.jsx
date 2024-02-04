@@ -111,9 +111,9 @@ const Filters = () => {
             <SelectWrap>
               <StyledLabel htmlFor="mileage">Сar mileage / km</StyledLabel>
               <InputContainer>
-                <InputLeft type="text" id="mileage" name="mileageFrom" />
+                <InputLeft type="number" id="mileage" name="mileageFrom" />
                 <SpanLeft>From</SpanLeft>
-                <InputRight type="text" id="mileage" name="mileageTo" />
+                <InputRight type="number" id="mileage" name="mileageTo" />
                 <SpanRight>To</SpanRight>
               </InputContainer>
             </SelectWrap>
